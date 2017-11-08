@@ -9,8 +9,25 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        #head{
+            width:100%;
+            height:10%;
+            background-color: lightskyblue;
+        }
+        #context{
+            width:80%;
+            height:90%;
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-
+<div id="head">
+    Logo
+</div>
+<div id="context">
+    context
+</div>
 </body>
 </html>

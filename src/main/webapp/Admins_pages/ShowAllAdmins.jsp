@@ -14,21 +14,36 @@
         #mytb{
             font-size: 13px;
             min-width: 700px;
+        }
+        #mydiv{
+            width: 700px;
+            min-width: 700px;
             margin: auto;
         }
     </style>
 </head>
 <body>
 <h2>管理员信息列表</h2>
+<div id="mydiv">
+<input id="AdminsName"><input onclick="adminsName();" type="button" value="查询"><br><br>
 <table id="mytb" border="1">
     <tr>
         <td>编号</td><td>头像</td><td>姓名</td><td>年龄</td><td>性别</td><td>邮箱</td>
         <td>电话</td><td>住址</td><td>身份证</td><td>状态</td><td>管理</td>
     </tr>
 </table>
+</div>
 </body>
 </html>
 <script>
+    function adminsName(){
+        var param = $("#AdminsName").val();
+        $.post("",param,function(data){
+
+        });
+    }
+
+    //页面初始化加载
     $(function(){
        $.get("${pageContext.request.contextPath}/adminsAction/findAdmins","",function(data){
             $.each(data,function(i,v){

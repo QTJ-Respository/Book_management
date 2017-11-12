@@ -21,6 +21,7 @@
         }
         #Dao_hang{
             width:20%;
+            min-width: 200px;
             height:90%;
             background-color: red;
         }

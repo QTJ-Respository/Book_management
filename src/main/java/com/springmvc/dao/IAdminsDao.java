@@ -12,4 +12,6 @@ public interface IAdminsDao {
     public boolean addAdmins(Administrator admins);
     //查询管理员
     public List findAdminsList(String hql);
+    //根据名称模糊查询
+    public List findAdminsByName(String hql);
 }

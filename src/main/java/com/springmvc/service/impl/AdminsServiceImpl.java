@@ -33,6 +33,13 @@ public class AdminsServiceImpl implements IAdminsService {
         return adminsDao.findAdminsList(hql);
     }
 
+    //根据名称模糊查询
+    @Override
+    public List findAdminsByName(String name) {
+        String hql = "from Administrator where admins_name like '%"+name+"%'";
+        return adminsDao.findAdminsByName(hql);
+    }
+
     public void setAdminsDao(IAdminsDao adminsDao) {
         this.adminsDao = adminsDao;
     }

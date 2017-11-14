@@ -29,4 +29,10 @@ public class AdminsDaoImpl extends BaseDao implements IAdminsDao{
     public List findAdminsList(String hql) {
         return getSession().createQuery(hql).list();
     }
+
+    //根据名称模糊查询所有管理员
+    @Override
+    public List findAdminsByName(String hql) {
+        return getSession().createQuery(hql).list();
+    }
 }

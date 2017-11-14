@@ -12,4 +12,6 @@ public interface IAdminsService {
     public boolean addAdmins(Administrator admins);
     //查询所有管理员的接口
     public List findAdminsList();
+    //根据名称模糊查询
+    public List findAdminsByName(String name);
 }

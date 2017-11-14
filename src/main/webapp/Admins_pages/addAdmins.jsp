@@ -12,9 +12,9 @@
     <title>Title</title>
     <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-    <script src="../js/distpicker.data.js"></script>
-    <script src="../js/distpicker.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/js/distpicker.data.js"></script>
+    <script src="${pageContext.request.contextPath}/js/distpicker.js"></script>
+    <script src="${pageContext.request.contextPath}/js/main.js"></script>
     <style>
        #mainDiv{
            width: 50%;

@@ -25,6 +25,14 @@ public class AdminsAction {
     @Resource(name = "adminsService")
     private IAdminsService adminsService;
 
+    //根据名称模糊查询管理元
+    @RequestMapping("/findAdminsByName")
+    @ResponseBody
+    public List findAdminsByName(String admins_name){
+        System.out.println(admins_name);
+        System.out.println(adminsService.findAdminsByName(admins_name));
+        return adminsService.findAdminsByName(admins_name);
+    }
     //查询所有管理员
     @RequestMapping("/findAdmins")
     @ResponseBody

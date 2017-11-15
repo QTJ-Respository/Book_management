@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Administrator {
     private int admins_no;//编号
     private String admins_name;//姓名
+    private String admins_pwd;//密码
     private int admins_sex;//性别：1:男,0:女
     private int admins_age;//年龄
     private String admins_email;//邮箱
@@ -22,21 +23,10 @@ public class Administrator {
     public Administrator() {
     }
 
-    public Administrator(int admins_no, String admins_name, int admins_sex, int admins_age, String admins_email, String admins_tel, String admins_address, String admins_ID, int admins_state) {
+    public Administrator(int admins_no, String admins_name, String admins_pwd, int admins_sex, int admins_age, String admins_email, String admins_tel, String admins_address, String admins_ID, int admins_state, String admins_img) {
         this.admins_no = admins_no;
         this.admins_name = admins_name;
-        this.admins_sex = admins_sex;
-        this.admins_age = admins_age;
-        this.admins_email = admins_email;
-        this.admins_tel = admins_tel;
-        this.admins_address = admins_address;
-        this.admins_ID = admins_ID;
-        this.admins_state = admins_state;
-    }
-
-    public Administrator(int admins_no, String admins_name, int admins_sex, int admins_age, String admins_email, String admins_tel, String admins_address, String admins_ID, int admins_state, String admins_img) {
-        this.admins_no = admins_no;
-        this.admins_name = admins_name;
+        this.admins_pwd = admins_pwd;
         this.admins_sex = admins_sex;
         this.admins_age = admins_age;
         this.admins_email = admins_email;
@@ -55,6 +45,14 @@ public class Administrator {
 
     public void setAdmins_no(int admins_no) {
         this.admins_no = admins_no;
+    }
+
+    public String getAdmins_pwd() {
+        return admins_pwd;
+    }
+
+    public void setAdmins_pwd(String admins_pwd) {
+        this.admins_pwd = admins_pwd;
     }
 
     public String getAdmins_name() {

@@ -40,6 +40,19 @@ public class AdminsServiceImpl implements IAdminsService {
         return adminsDao.findAdminsByName(hql);
     }
 
+    //管理员的登录
+    @Override
+    public Administrator findAdmins(String name, String pwd) {
+        List<Administrator> AdminsList = adminsDao.findAdminsList("from Administrator");
+        System.out.println("AdminsList:"+AdminsList);
+        for (Administrator admins:AdminsList) {
+            if(name.equals(admins.getAdmins_name()) && pwd.equals(admins.getAdmins_pwd())){
+                return  admins;
+            }
+        }
+        return null;
+    }
+
     public void setAdminsDao(IAdminsDao adminsDao) {
         this.adminsDao = adminsDao;
     }

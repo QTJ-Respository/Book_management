@@ -14,4 +14,6 @@ public interface IAdminsService {
     public List findAdminsList();
     //根据名称模糊查询
     public List findAdminsByName(String name);
+    //管理员登录
+    public Administrator findAdmins(String name,String pwd);
 }

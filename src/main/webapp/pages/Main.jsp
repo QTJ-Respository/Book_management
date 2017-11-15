@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -40,7 +41,7 @@
 <body>
 <div style="width: 100%;height:100%;">
 <div id="head">
-    Logo
+    <div style="text-align: center">登录人：<c:out value="${param.admins_name}"/></div>
 </div>
 <div id="context">
     <iframe id="myiframe" src="Context.jsp"></iframe>

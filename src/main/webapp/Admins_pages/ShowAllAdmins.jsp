@@ -17,23 +17,28 @@
             min-width: 700px;
         }
         #mydiv{
-            width: 700px;
-            min-width: 700px;
+            padding: 20px;
             margin: auto;
         }
     </style>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
-<body>
+<body style="background-color: #F5FAFF">
 <h2>管理员信息列表</h2>
 <div id="mydiv">
 <form id="myform" action="" method="post">
     <input id="AdminsName" name="admins_name"><input type="button" onclick="findAdmins();" value="查询">
 </form><br>
-<table id="mytb" border="1">
-    <tr>
-        <td>编号</td><td>头像</td><td>姓名</td><td>年龄</td><td>性别</td><td>邮箱</td>
-        <td>电话</td><td>住址</td><td>身份证</td><td>状态</td><td>管理</td>
-    </tr>
+<table class="table table-hover" id="mytb" border="1">
+    <thread>
+        <tr>
+            <td>编号</td><td>头像</td><td>姓名</td><td>年龄</td><td>性别</td><td>邮箱</td>
+            <td>电话</td><td>住址</td><td>身份证</td><td>状态</td><td>管理</td>
+        </tr>
+    </thread>
 </table>
 </div>
 </body>

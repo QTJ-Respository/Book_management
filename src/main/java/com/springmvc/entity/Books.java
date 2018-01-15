@@ -1,5 +1,7 @@
 package com.springmvc.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,21 +18,21 @@ public class Books {
     private String book_author;
     private double book_price;
     private int book_amount;
-    private int book_num;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date book_intime;
-
+    private int book_state=1;
     public Books() {
     }
 
-    public Books(int book_no, String book_name, String book_type, String book_author, double book_price, int book_amount, int book_num, Date book_intime) {
+    public Books(int book_no, String book_name, String book_type, String book_author, double book_price, int book_amount, Date book_intime,int book_state) {
         this.book_no = book_no;
         this.book_name = book_name;
         this.book_type = book_type;
         this.book_author = book_author;
         this.book_price = book_price;
         this.book_amount = book_amount;
-        this.book_num = book_num;
         this.book_intime = book_intime;
+        this.book_state = book_state;
     }
 
     @Id
@@ -83,13 +85,6 @@ public class Books {
         this.book_amount = book_amount;
     }
 
-    public int getBook_num() {
-        return book_num;
-    }
-
-    public void setBook_num(int book_num) {
-        this.book_num = book_num;
-    }
 
     public Date getBook_intime() {
         return book_intime;
@@ -97,5 +92,13 @@ public class Books {
 
     public void setBook_intime(Date book_intime) {
         this.book_intime = book_intime;
+    }
+
+    public int getBook_state() {
+        return book_state;
+    }
+
+    public void setBook_state(int book_state) {
+        this.book_state = book_state;
     }
 }

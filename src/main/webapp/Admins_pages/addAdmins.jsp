@@ -19,13 +19,13 @@
        #mainDiv{
            width: 50%;
            min-width: 500px;
-           height:90%;
-           background-color:white;
+           height:100%;
+           border: 1px solid #C3D6E8;
            margin: auto;
            padding-left: 10px;
        }
        #localImag{
-            background-color: red;
+            border: 1px solid #C3D6E8;
             width:60px;
             height:80px;
            position: relative;
@@ -34,7 +34,7 @@
        }
     </style>
 </head>
-<body>
+<body style="background-color: #F5FAFF">
 <h2>添加管理员</h2>
     <div id="mainDiv">
         <div id="message" style="font-size: 18px">
@@ -48,23 +48,24 @@
         <!--<input type=file name="doc" id="doc" onchange="javascript:setImagePreview();">-->
         <div id="localImag"><img id="preview" width="-1" height="-1" style="diplay:none" /></div>
         <form id="myform"  action="${pageContext.request.contextPath}/adminsAction/addAdmins" method="post" enctype="multipart/form-data">
-            姓名：<input name="admins_name"><br>
+            姓名：<input name="admins_name"><br><br>
             性别：<input name="admins_sex" type="radio" value="1" checked>男
-                  <input name="admins_sex" type="radio" value="0">女<br>
-            年龄：<input name="admins_age"><br>
-            邮箱：<input name="admins_email"><br>
-            电话：<input name="admins_tel"><br>
+                  <input name="admins_sex" type="radio" value="0">女<br><br>
+            年龄：<input name="admins_age"><br><br>
+            邮箱：<input name="admins_email"><br><br>
+            电话：<input name="admins_tel"><br><br>
             <div id="distpicker">
                 <div class="form-group">
                    地址：<select name="sheng" class="form-control" id="province10" style="width: 90px"></select>
                          <select name="shi" class="form-control" id="city10" style="width: 90px"></select>
                          <select name="qu" class="form-control" id="district10" style="width: 90px"></select>
                 </div>
-            </div>
-            证号：<input name="admins_ID"><br>
+            </div><br>
+            证号：<input name="admins_ID"><br><br>
+            口令：<input name="admins_pwd"><br><br>
             状态：<input name="admins_state" value="1" type="radio" checked>启用
-                  <input name="admins_state" value="0" type="radio">禁用<br>
-            头像：<input name="ufile" type="file" name="doc" id="doc" onchange="javascript:setImagePreview();"><br>
+                  <input name="admins_state" value="0" type="radio">禁用<br><br>
+            头像：<input name="ufile" type="file" name="doc" id="doc" onchange="javascript:setImagePreview();"><br><br>
             <input type="submit" value="添加">
         </form>
     </div>

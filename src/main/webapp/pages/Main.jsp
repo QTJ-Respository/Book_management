@@ -18,13 +18,11 @@
         #head{
             width:100%;
             height:10%;
-            background-color: lightskyblue;
         }
         #Dao_hang{
             width:20%;
             min-width: 200px;
             height:90%;
-            background-color: red;
         }
         #context{
             width:80%;
@@ -41,12 +39,13 @@
 <body>
 <div style="width: 100%;height:100%;">
 <div id="head">
-    <div style="text-align: center">登录人：<c:out value="${param.admins_name}"/></div>
+<img src="../images/logo.gif" width="100%" height="60">
 </div>
 <div id="context">
     <iframe id="myiframe" src="Context.jsp"></iframe>
 </div>
 <div id="Dao_hang">
+    <div style="text-align: center;height: 50px;">登录人：<c:out value="${param.admins_name}"/></div>
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -93,8 +92,8 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
                 <div class="panel-body" style="height:100px;">
-                    <a href="javascript:test();">查看学生所有信息</a><br>
-                    <a>5</a><br>
+                    <a href="javascript:showAllUserss();">查看学生所有信息</a><br>
+                    <a href="javascript:toAddUsers()">添加学生</a><br>
                     <a>6</a><br>
                 </div>
             </div>
@@ -141,5 +140,13 @@
     //跳转到添加管理员信息页面
     function toaddAdmins(){
         $("#myiframe").attr("src","../Admins_pages/addAdmins.jsp");
+    }
+    //跳转到添加用户页面
+    function toAddUsers(){
+        $("#myiframe").attr("src","../Users_pages/addUsers.jsp");
+    }
+    //跳转到查询Users页面
+    function showAllUserss(){
+        $("#myiframe").attr("src","../Users_pages/showAllUsers.jsp");
     }
 </script>

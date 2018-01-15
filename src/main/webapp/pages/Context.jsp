@@ -9,8 +9,16 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        body{
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
 </head>
 <body>
-Context
+    <img src="../images/welcome.gif" width="100%" height="100%">
 </body>
 </html>

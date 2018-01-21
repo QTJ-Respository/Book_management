@@ -77,7 +77,7 @@
                 <div class="panel-body" style="height:100px;">
                     <a href="javascript:toBorrow_books();">添加借阅信息</a><br>
                     <a href="javascript:toShowBorrow_books();">查看借阅记录</a><br>
-                    <a>9</a><br>
+                    <a></a><br>
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@
                 <div class="panel-body" style="height:100px;">
                     <a href="javascript:toShowAllAdmins();">查看管理员信息</a><br>
                     <a href="javascript:toaddAdmins();">添加新管理员</a><br>
-                    <a>9</a><br>
+                    <a></a><br>
                 </div>
             </div>
         </div>

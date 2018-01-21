@@ -14,4 +14,12 @@ public interface IBooksService {
     public List showAllBooks();
     //分页查询
     public List showBooksByPage(int page);
+    //根据姓名查询用户
+    public Books findBookByName(String name);
+    //书籍首页查询
+    public List firstPage();
+    //书籍尾页查询
+    public List lastPage(int size);
+    //更具ID查寻书籍
+    public Books getBookById(int id);
 }

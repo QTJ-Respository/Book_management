@@ -20,17 +20,38 @@ public class UsersAction {
     //注入服务层接口
     @Resource(name="userService")
     private IUserService userService;
+
+    //根据ID查询用户
+    @RequestMapping("/findUserById")
+    public String findUserById(int id,RedirectAttributes attr){
+        Users user = userService.findUserById(id);
+        user.setUser_state(0);
+        if(userService.updateUser(user)){
+            attr.addAttribute("rtype","1");
+        }else{
+            attr.addAttribute("rtype","-1");
+        }
+        return "redirect:/Users_pages/showAllUsers.jsp";
+    }
     //添加用户
     @RequestMapping("/addUsers")
     public String addUser(String sheng, String shi, String qu, Users user,RedirectAttributes attr){
         String address = ""+sheng+","+shi+","+qu+"";
         System.out.println(address);
         user.setUser_address(address);
-        if(userService.addUsers(user)){
-            attr.addAttribute("rtype","1");
+        Users finduser = userService.findUserByName(user.getUser_name(),user.getUser_tel());
+        if(finduser!=null){
+            if(finduser.getUser_state()==0){
+                attr.addAttribute("rtype","-2");
+            }
         }else{
-            attr.addAttribute("rtype","-1");
+            if(userService.addUsers(user)){
+                attr.addAttribute("rtype","1");
+            }else{
+                attr.addAttribute("rtype","-1");
+            }
         }
+
         return "redirect:/Users_pages/addUsers.jsp";
     }
 
@@ -40,7 +61,26 @@ public class UsersAction {
     public List findUserList(){
         return userService.findUsersList();
     }
+    //黑名单
+    @RequestMapping("/findAllUserByBlackList")
+    @ResponseBody
+    public List findAllUserByBlackList(){
+        return userService.findAllUserByBlackList();
+    }
 
+    //删除用户
+    @RequestMapping("/deleteUser")
+    @ResponseBody
+    public String deleteUser(int id,RedirectAttributes attr){
+        System.out.println(id);
+        Users user = userService.findUserById(id);
+        if(userService.deleteUser(user)){
+            attr.addAttribute("rtype","1");
+        }else{
+            attr.addAttribute("rtype","-1");
+        }
+        return "redirect:/Users_pages/Blacklist.jsp";
+    }
 
     public void setUserService(IUserService userService) {
         this.userService = userService;

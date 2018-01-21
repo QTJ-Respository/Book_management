@@ -38,7 +38,7 @@
         </div>
         <form action="adminsAction/doLogin" method="post">
             用户名：<input name="uname"><br><br>
-            密&nbsp;码：<input name="upwd"><br><br>
+            密&nbsp;码：<input name="upwd" type="password"><br><br>
             <input type="submit" style="background-color: #D6EDFF;border: solid 1px #87A3C1;" value="登录">&nbsp;<a href="#" style="font-size: 9px;">找回密码</a>
         </form>
 

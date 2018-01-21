@@ -38,8 +38,8 @@
 </head>
 <body>
 <div style="width: 100%;height:100%;">
-<div id="head">
-<img src="../images/logo.gif" width="100%" height="60">
+<div id="head"  style="background-color: #87A3C1">
+
 </div>
 <div id="context">
     <iframe id="myiframe" src="Context.jsp"></iframe>
@@ -60,7 +60,7 @@
                 <div class="panel-body" style="height:100px;">
                     <a href="javascript:toShowAllBook();">查询所有书籍</a><br>
                     <a href="javascript:toAddBook();">添加图书信息</a><br>
-                    <a href="javascript:toUpdateBook();">更新图书信息</a><br>
+
                 </div>
             </div>
         </div>
@@ -75,8 +75,8 @@
             </div>
             <div id="collapseFour" class="panel-collapse collapse">
                 <div class="panel-body" style="height:100px;">
-                    <a href="#">浏览学生的借阅信息</a><br>
-                    <a>删除学生的借阅记录</a><br>
+                    <a href="javascript:toBorrow_books();">添加借阅信息</a><br>
+                    <a href="javascript:toShowBorrow_books();">查看借阅记录</a><br>
                     <a>9</a><br>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                 <div class="panel-body" style="height:100px;">
                     <a href="javascript:showAllUserss();">查看学生所有信息</a><br>
                     <a href="javascript:toAddUsers()">添加学生</a><br>
-                    <a>6</a><br>
+                    <a href="javascript:toBlacklist()">黑名单</a><br>
                 </div>
             </div>
         </div>
@@ -148,5 +148,17 @@
     //跳转到查询Users页面
     function showAllUserss(){
         $("#myiframe").attr("src","../Users_pages/showAllUsers.jsp");
+    }
+    //跳转查看借阅页面
+    function toBorrow_books(){
+        $("#myiframe").attr("src","../Borrow_book/Borrow_books.jsp");
+    }
+    //跳转查看借阅信息页面
+    function toShowBorrow_books(){
+        $("#myiframe").attr("src","../Borrow_book/Show_Borrow_books.jsp");
+    }
+    //去到黑名单
+    function toBlacklist(){
+        $("#myiframe").attr("src","../Users_pages/Blacklist.jsp");
     }
 </script>

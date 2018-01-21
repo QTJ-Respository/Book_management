@@ -35,4 +35,19 @@ public class BookDaoImpl extends BaseDao implements IBookDao {
         return getSession().createSQLQuery(sql).list();
     }
 
+    @Override
+    public List firstPage(String hql) {
+        return getSession().createSQLQuery(hql).list();
+    }
+    @Override
+    public List lastPage(String hql) {
+        return getSession().createSQLQuery(hql).list();
+    }
+
+    @Override
+    public Books getBookById(int id) {
+       Books book = getSession().get(Books.class,id);
+        return book;
+    }
+
 }

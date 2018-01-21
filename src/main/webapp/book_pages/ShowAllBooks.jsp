@@ -29,16 +29,59 @@
     <thead>
         <tr>
             <td>编号</td><td>名称</td><td>类型</td><td>作者</td><td>价格</td><td>上架数量</td>
-            <td>上架时间</td>
+            <td>上架时间</td><td>管理</td>
+        </tr>
+        <tr>
+            <a ><button onclick="firstPage();">首页</button></a>|
+            <a><button id="upPage" onclick="upPage()">上一页</button></a>|
+            <a><button id="downPage" onclick="downPage()">下一页</button></a>|
+            <a ><button onclick="lastPage();">尾页</button></a>
         </tr>
     </thead>
 </table>
-<center>
-    <button onclick="upPage()">上一页</button><button id="downPage" onclick="downPage()">下一页</button>
-</center>
+
 </body>
 </html>
 <script>
+    function lastPage(){
+        $("#mytb tr:not(:first)").remove();
+        $.get("${pageContext.request.contextPath}/booksAction/lastPage","",function(data) {
+            $.each(data, function (i, v) {
+                var str = "<tr>";
+                str += "<td>" + (i + 1) + "</td>";
+                str += "<td>" + v[4] + "</td>";
+                str += "<td>" + v[7] + "</td>";
+                str += "<td>" + v[2] + "</td>";
+                str += "<td>" + v[5] + "</td>";
+                str += "<td>" + v[1] + "</td>";
+                var date = new Date(v[3]);
+                str += "<td>" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate()) + "</td>";
+                str += "<td><a href='${pageContext.request.contextPath}/booksAction/updateBooks?id="+v[0]+"'>修改<a></td>";
+                str += "</tr>";
+                $("#mytb").append(str);
+            })
+        })
+    }
+    function firstPage(){
+        $("#mytb tr:not(:first)").remove();
+        $.get("${pageContext.request.contextPath}/booksAction/firstPage","",function(data) {
+            $.each(data, function (i, v) {
+                var str = "<tr>";
+                str += "<td>" + (i + 1) + "</td>";
+                str += "<td>" + v[4] + "</td>";
+                str += "<td>" + v[7] + "</td>";
+                str += "<td>" + v[2] + "</td>";
+                str += "<td>" + v[5] + "</td>";
+                str += "<td>" + v[1] + "</td>";
+                var date = new Date(v[3]);
+                str += "<td>" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate()) + "</td>";
+                str += "<td><a href='${pageContext.request.contextPath}/booksAction/updateBooks?id="+v[0]+"'>修改<a></td>";
+
+                str += "</tr>";
+                $("#mytb").append(str);
+            })
+        })
+    }
     //页面加载完毕显示所有书籍
     /*
     $(function(){
@@ -73,12 +116,13 @@
                 var str = "<tr>";
                 str+="<td>"+(i+1)+"</td>";
                 str+="<td>"+v[4]+"</td>";
-                str+="<td>"+v[6]+"</td>";
+                str+="<td>"+v[7]+"</td>";
                 str+="<td>"+v[2]+"</td>";
                 str+="<td>"+v[5]+"</td>";
                 str+="<td>"+v[1]+"</td>";
                 var date = new Date(v[3]);
-                str+="<td>"+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDay()+1)+"</td>";
+                str+="<td>"+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate())+"</td>";
+                str += "<td><a href='${pageContext.request.contextPath}/booksAction/updateBooks?id="+v[0]+"'>修改<a></td>";
                 str +="</tr>";
                 $("#mytb").append(str);
             });
@@ -100,12 +144,14 @@
                 var str = "<tr>";
                 str+="<td>"+(i+1)+"</td>";
                 str+="<td>"+v[4]+"</td>";
-                str+="<td>"+v[6]+"</td>";
+                str+="<td>"+v[7]+"</td>";
                 str+="<td>"+v[2]+"</td>";
                 str+="<td>"+v[5]+"</td>";
                 str+="<td>"+v[1]+"</td>";
                 var date = new Date(v[3]);
-                str+="<td>"+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDay()+1)+"</td>";
+                str+="<td>"+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate())+"</td>";
+                str += "<td><a href='${pageContext.request.contextPath}/booksAction/updateBooks?id="+v[0]+"'>修改<a></td>";
+
                 str +="</tr>";
                 $("#mytb").append(str);
             });
@@ -121,7 +167,7 @@
                 var str = "<tr>";
                 str+="<td>"+(i+1)+"</td>";
                 str+="<td>"+v[4]+"</td>";
-                str+="<td>"+v[6]+"</td>";
+                str+="<td>"+v[7]+"</td>";
                 str+="<td>"+v[2]+"</td>";
                 str+="<td>"+v[5]+"</td>";
                 str+="<td>"+v[1]+"</td>";
@@ -133,9 +179,16 @@
             //查询完毕后不能下一页
             if($("#mytb tr").length!=6){
                 $("#downPage").attr("disabled",true);
+                var str = "<tr><td colspan='8' style='text-align: center'>没有数据了</td></tr>";
+                $("#mytb").append(str);
             }
         });
     }
 
+    //打开div
+    function openDiv(){
+
+        //$("#main_div").hide();//隐藏div
+    }
 
 </script>

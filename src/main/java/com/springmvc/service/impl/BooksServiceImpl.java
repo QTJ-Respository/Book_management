@@ -39,6 +39,38 @@ public class BooksServiceImpl implements IBooksService {
         return booksDao.showBooksByPage(hql);
     }
 
+    @Override
+    public Books findBookByName(String name) {
+        String hql = "from Books";
+        List<Books> bookList = booksDao.showAllBooks(hql);
+        for (Books book:bookList) {
+            if(book.getBook_name().equals(name)){
+                return book;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List firstPage() {
+        int pageSize = 5;
+        int startIndex = 0;
+        String hql = "select * from tb_books limit "+startIndex+","+pageSize+"";
+        return booksDao.firstPage(hql);
+    }
+    @Override
+    public List lastPage(int size) {
+        int pageSize = 5;
+        int startIndex = size;
+        String hql = "select * from tb_books limit "+startIndex+","+pageSize+"";
+        return booksDao.firstPage(hql);
+    }
+
+    @Override
+    public Books getBookById(int id) {
+        return booksDao.getBookById(id);
+    }
+
     public void setBooksDao(IBookDao booksDao) {
         this.booksDao = booksDao;
     }

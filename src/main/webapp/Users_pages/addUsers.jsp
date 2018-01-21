@@ -15,6 +15,38 @@
     <script src="${pageContext.request.contextPath}/js/distpicker.data.js"></script>
     <script src="${pageContext.request.contextPath}/js/distpicker.js"></script>
     <script src="${pageContext.request.contextPath}/js/main.js"></script>
+    <style>
+
+        #mainDiv{
+            width: 50%;
+            min-width: 500px;
+            height:100%;
+            border: 1px solid #C3D6E8;
+            margin: auto;
+            padding-left: 50px;
+            border: 1px solid #C3D6E8;
+            padding-top: 20px;
+            border-radius: 10px;
+            background-color: lightskyblue;
+        }
+        input,select{
+            border: 1px solid #ccc;
+            padding: 7px 0px;
+            border-radius: 3px;
+            padding-left:5px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+        }
+        input:focus{
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+        }
+    </style>
 </head>
 <body style="background-color: #F5FAFF;padding: 30px">
 <h2>AddUsers</h2>
@@ -25,6 +57,9 @@
         </c:if>
         <c:if test="${param.rtype==-1}">
             <p style="color:red;">添加失败!</p>
+        </c:if>
+        <c:if test="${param.rtype==-2}">
+            <p style="color:red;">该用户注册无效!</p>
         </c:if>
     </div>
     <!--<input type=file name="doc" id="doc" onchange="javascript:setImagePreview();">-->
@@ -45,13 +80,14 @@
         </div><br>
         状&nbsp;态：<input name="user_state" value="1" type="radio" checked>启用
         <input name="user_state" value="0" type="radio">禁用<br><br>
-        <input type="submit" value="添加">
+        <input style="padding: 10px" type="submit" value="添加">
+        <input style="padding: 10px" type="reset" value="重置">
     </form>
 </div>
 </body>
 </html>
 <script>
-    /*
+
     $("document").ready(function(){
         $("#myform").submit(function(){
             //姓名验证
@@ -94,5 +130,5 @@
             }
         })
     });
-    */
+
 </script>

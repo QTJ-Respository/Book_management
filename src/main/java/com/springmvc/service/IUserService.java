@@ -12,4 +12,14 @@ public interface IUserService {
     public boolean addUsers(Users user);
     //查询所有用户
     public List findUsersList();
+    //根据姓名查询用户
+    public Users findUserByName(String name,String utel);
+    //根据ID查询用户
+    public Users findUserById(int id);
+    //更新Users
+    public boolean updateUser(Users user);
+    //黑名单
+    public List findAllUserByBlackList();
+    //删除用户
+    public boolean deleteUser(Users user);
 }

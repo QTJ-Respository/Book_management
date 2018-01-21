@@ -17,4 +17,10 @@ public interface IBookDao {
     public List showBooksByPage(String sql);
     //修改书籍
     //删除书籍
+    //首页查询
+    public List firstPage(String hql);
+    //尾页查询
+    public List lastPage(String hql);
+    //更具ID查寻书籍
+    public Books getBookById(int id);
 }

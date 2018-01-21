@@ -12,4 +12,10 @@ public interface IUsersDao {
     public boolean addUsers(Users user);
     //查询所有用户
     public List findUsersList(String hql);
+    //根据ID查询用户
+    public Users findUserById(int id);
+    //更新Users
+    public boolean updateUser(Users user);
+    //删除用户
+    public boolean deleteUser(Users user);
 }

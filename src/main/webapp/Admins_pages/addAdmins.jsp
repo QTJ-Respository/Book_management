@@ -19,18 +19,36 @@
        #mainDiv{
            width: 50%;
            min-width: 500px;
-           height:100%;
            border: 1px solid #C3D6E8;
            margin: auto;
-           padding-left: 10px;
+           padding: 50px;
+           border-radius: 10px;
+           background-color: lightskyblue;
        }
        #localImag{
-            border: 1px solid #C3D6E8;
-            width:60px;
-            height:80px;
-           position: relative;
-            left:55%;
-            top:20%;
+            border: 1px solid #87A3C1;
+            width:80px;
+            height:100px;
+            position: absolute;
+            left:50%;
+            top:30%;
+       }
+       input,select{
+           border: 1px solid #ccc;
+           padding: 7px 0px;
+           border-radius: 3px;
+           padding-left:5px;
+           -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+           box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+           -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+           -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+           transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+       }
+       input:focus{
+           border-color: #66afe9;
+           outline: 0;
+           -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+           box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
        }
     </style>
 </head>
@@ -65,8 +83,8 @@
             口令：<input name="admins_pwd"><br><br>
             状态：<input name="admins_state" value="1" type="radio" checked>启用
                   <input name="admins_state" value="0" type="radio">禁用<br><br>
-            头像：<input name="ufile" type="file" name="doc" id="doc" onchange="javascript:setImagePreview();"><br><br>
-            <input type="submit" value="添加">
+            头像：<input style="border:0px;outline:none;" name="ufile" type="file" name="doc" id="doc" onchange="javascript:setImagePreview();"><br><br>
+            <input style="padding: 10px" type="submit" value="添加">
         </form>
     </div>
 </body>
@@ -78,8 +96,8 @@
        if(docObj.files && docObj.files[0]){
 //火狐下，直接设img属性
            imgObjPreview.style.display = 'block';
-           imgObjPreview.style.width = '60px';
-           imgObjPreview.style.height = '80px';
+           imgObjPreview.style.width = '80px';
+           imgObjPreview.style.height = '100px';
 //imgObjPreview.src = docObj.files[0].getAsDataURL();
 //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
            imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);

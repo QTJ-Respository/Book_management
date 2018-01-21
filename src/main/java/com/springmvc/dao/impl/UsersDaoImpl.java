@@ -27,4 +27,34 @@ public class UsersDaoImpl extends BaseDao implements IUsersDao {
     public List findUsersList(String hql) {
         return getSession().createQuery(hql).list();
     }
+
+    @Override
+    public Users findUserById(int id) {
+        Users user = getSession().get(Users.class,id);
+        return user;
+    }
+
+    @Override
+    public boolean updateUser(Users user) {
+        try{
+            getSession().update(user);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteUser(Users user) {
+        try {
+            getSession().delete(user);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 }

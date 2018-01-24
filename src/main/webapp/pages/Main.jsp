@@ -20,12 +20,12 @@
             height:10%;
         }
         #Dao_hang{
-            width:20%;
+            width:14%;
             min-width: 200px;
             height:90%;
         }
         #context{
-            width:80%;
+            width:85%;
             height:90%;
             background-color: #f0f0f0;
             float:right;
@@ -34,24 +34,31 @@
             width: 100%;
             height:100%;
         }
+        a:hover{
+            color: red;
+        }
+
     </style>
 </head>
-<body>
-<div style="width: 100%;height:100%;">
-<div id="head"  style="background-color: #87A3C1">
-
+<body style="font-size: 7px">
+<div style="width: 100%;height:100%; min-width: 1000px;">
+<div id="head" style="background-color: #87A3C1">
 </div>
 <div id="context">
-    <iframe id="myiframe" src="Context.jsp"></iframe>
+    <iframe id="myiframe" src="Context.jsp" style="border: 2px solid #B8C9D6"></iframe>
 </div>
-<div id="Dao_hang">
-    <div style="text-align: center;height: 50px;">登录人：<c:out value="${param.admins_name}"/></div>
+<div id="Dao_hang" style="margin-left:10px;border: 2px solid #B8C9D6;">
+    <div style="background: url('../images/nav01.gif');text-align: center;padding-top: 10px;height:55px;width:100%">
+        <img src="../images<c:out value='${param.admins_img}'/>" width="35" height="35" />
+        登录人：<c:out value="${param.admins_name}"/>
+
+    </div>
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" style="background:url('../images/nav02.gif');background-size:100% 100%;">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseOne">
+                       href="#collapseOne" style="font-size: 10px">
                         图书管理
                     </a>
                 </h4>
@@ -65,10 +72,10 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" style="background:url('../images/nav02.gif');background-size:100% 100%;">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseFour">
+                       href="#collapseFour" style="font-size: 10px">
                         借阅信息
                     </a>
                 </h4>
@@ -82,10 +89,10 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" style="background:url('../images/nav02.gif');background-size:100% 100%;">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseTwo">
+                       href="#collapseTwo"  style="font-size: 10px">
                         学生管理
                     </a>
                 </h4>
@@ -99,10 +106,10 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" style="background:url('../images/nav02.gif');background-size:100% 100%;">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseThree">
+                       href="#collapseThree"  style="font-size: 10px">
                         管理员
                     </a>
                 </h4>

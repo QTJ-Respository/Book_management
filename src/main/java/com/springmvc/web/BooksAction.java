@@ -2,6 +2,7 @@ package com.springmvc.web;
 
 import com.springmvc.entity.Books;
 import com.springmvc.service.IBooksService;
+import com.springmvc.service.IBorrow_booksService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,9 @@ public class BooksAction {
     @Resource(name="booksService")
     private IBooksService bookService;
 
+    @Resource(name = "borrow_booksService")
+    private IBorrow_booksService borrow_booksService;
+
     //修改书籍
     @RequestMapping("/updateBooks")
     public String updateBooks(int id, Model model, HttpServletRequest request){
@@ -28,7 +32,16 @@ public class BooksAction {
         request.setAttribute("book",book);
         return "forward:../book_pages/UpdateBooks.jsp";
     }
-
+    //执行修改
+    @RequestMapping("/doupdateBooks")
+    public String doupdateBooks(Books books, RedirectAttributes attr){
+        if(bookService.updateBook(books)){
+            attr.addAttribute("rtype","1");
+        }else{
+            attr.addAttribute("rtype","-1");
+        }
+        return "redirect:../book_pages/UpdateBooks.jsp";
+    }
     //添加书籍
     @RequestMapping("/addBooks")
     public String addBooks(Books book, RedirectAttributes attr){
@@ -51,6 +64,7 @@ public class BooksAction {
     @RequestMapping("/findBookListBypage")
     @ResponseBody
     public List findBooksList(int page){
+        //获取所有书籍名称
         return bookService.showBooksByPage(page);
     }
 
@@ -74,4 +88,8 @@ public class BooksAction {
         return bookService.lastPage(size);
     }
 
+
+    public void setBorrow_booksService(IBorrow_booksService borrow_booksService) {
+        this.borrow_booksService = borrow_booksService;
+    }
 }

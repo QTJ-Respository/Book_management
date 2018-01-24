@@ -27,7 +27,9 @@
             border: 1px solid #C3D6E8;
             padding-top: 20px;
             border-radius: 10px;
-            background-color: lightskyblue;
+
+            font-size: 9px;
+            background: linear-gradient(white, #C4C4C4);
         }
         input,select{
             border: 1px solid #ccc;
@@ -92,7 +94,7 @@
         $("#myform").submit(function(){
             //姓名验证
             var user=$("#name").val();
-            var username=/^[a-z]{6,10}/i;
+            var username=/^[a-z]{4,10}/i;
             if(user.length==0) {
                 $("#name_test").html("账号不可以为空");
                 return false;
@@ -109,7 +111,7 @@
             if(userid.length==0){
                 $("#error5").html("身份证不可以为空");
                 return false;
-            }else if(!id.test(telephone)){
+            }else if(!id.test(userid)){
                 $("#error5").html("请输入合法身份证");
                 return false;
             }else{

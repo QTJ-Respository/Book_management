@@ -1,6 +1,8 @@
 package com.springmvc.entity;
 
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Administrator on 2017/11/14 0014.
@@ -10,6 +12,7 @@ import javax.persistence.*;
 public class Users {
     //id,用户名，性别,电话，身份证，地址，定金，状态
     private int user_no;
+    @NotNull(message = "请输入姓名")
     private String user_name;
     private int user_sex;
     private String user_tel;

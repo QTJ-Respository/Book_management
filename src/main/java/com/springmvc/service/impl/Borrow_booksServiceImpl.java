@@ -49,11 +49,23 @@ public class Borrow_booksServiceImpl implements IBorrow_booksService {
         hql += "select b.bu_no,b.book.book_name,b.user.user_name,b.borrow_time,b.still_time,b.isreturn " +
                      "from BookAndUser b where 1=1 and b.isreturn = 0 ";
         if(name!=""){
-            hql += "and b.user.user_name='"+name+"'";
+            hql += "and b.user.user_name like '%"+name+"%'";
         }
         return borrow_booksDao.findRecordByName(hql);
     }
 
+    @Override
+    public boolean deleteRecordById(int id) {
+        String hql = "delete book_user where user_user_no = "+id+"";
+        return borrow_booksDao.deleteRecordById(hql);
+    }
+
+    @Override
+    public List findRecordByBookName(String name) {
+        String hql = "select b.bu_no,b.book.book_name,b.user.user_name,b.borrow_time,b.still_time,b.isreturn " +
+                "from BookAndUser b where b.book.book_name = '"+name+"' ";
+        return borrow_booksDao.findRecordByBookName(hql);
+    }
 
 
     public void setBorrow_booksDao(IBorrow_booksDao borrow_booksDao) {

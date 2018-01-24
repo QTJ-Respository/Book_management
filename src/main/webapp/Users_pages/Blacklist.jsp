@@ -14,27 +14,37 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        tbody{
+            color: red;
+        }
+    </style>
 </head>
 <body style="padding: 30px;background-color: #F5FAFF">
-<h2>Blacklist</h2>
 <div id="message" style="font-size: 18px;width: 100%;text-align: center">
     <p id="message_p" name="message_p" style="color:green;display: none">已删除!</p>
     <p id="message_p2" style="color:red;display: none">删除失败!</p>
 </div>
+<div style="float: right;margin-top: 10px">
+    <input name="username"><input type="button" value="查询" onclick="findRecordByName();"><br><br>
+</div>
 <table style="font-size: 9px" id="mytb" border="1" class="table table-hover">
     <thead>
+    <tr><td colspan="9" style="background-color: #6795B4">
+        <center style="font-size: 18px;color: white">Blacklist</center>
+    </td></tr>
     <tr>
         <td>编号</td><td>姓名</td><td>性别</td><td>电话</td>
         <td>证号</td><td>地址</td><td>订金</td><td>状态</td>
     </tr>
-    <tr>
-        <a href="javascript:doPage(1);">首页</a>|
-        <a href="javascript:doPage(${pageBean.cpage-1>0?pageBean.cpage-1:1});">上一页</a>|
-        <a href="javascript:doPage(${pageBean.cpage+1>pageBean.allPage?pageBean.allPage:pageBean.cpage+1});">下一页</a>|
-        <a href="javascript:doPage(${pageBean.allPage});">尾页</a>
-    </tr>
     </thead>
 </table>
+<div style="float: right">
+    <a href="javascript:doPage(1);">首页</a>|
+    <a href="javascript:doPage(${pageBean.cpage-1>0?pageBean.cpage-1:1});">上一页</a>|
+    <a href="javascript:doPage(${pageBean.cpage+1>pageBean.allPage?pageBean.allPage:pageBean.cpage+1});">下一页</a>|
+    <a href="javascript:doPage(${pageBean.allPage});">尾页</a>
+</div>
 </body>
 </html>
 <script>

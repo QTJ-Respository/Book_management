@@ -23,7 +23,7 @@
            margin: auto;
            padding: 50px;
            border-radius: 10px;
-           background-color: lightskyblue;
+           background: linear-gradient(white, #C4C4C4);
        }
        #localImag{
             border: 1px solid #87A3C1;
@@ -66,7 +66,7 @@
         <!--<input type=file name="doc" id="doc" onchange="javascript:setImagePreview();">-->
         <div id="localImag"><img id="preview" width="-1" height="-1" style="diplay:none" /></div>
         <form id="myform"  action="${pageContext.request.contextPath}/adminsAction/addAdmins" method="post" enctype="multipart/form-data">
-            姓名：<input name="admins_name"><br><br>
+            姓名：<input name="admins_name"><span style="color: red" id="admins_name"></span><br><br>
             性别：<input name="admins_sex" type="radio" value="1" checked>男
                   <input name="admins_sex" type="radio" value="0">女<br><br>
             年龄：<input name="admins_age"><br><br>
@@ -90,6 +90,17 @@
 </body>
 </html>
 <script>
+
+    $("document").ready(function() {
+        $("#myform").submit(function () {
+            //验证名称
+            var name = $("input[name='admins_name']").val();
+            if (name.length == 0) {
+                $("#admins_name").html("请输入用户名");
+                return false;
+            }
+        })
+    })
    function setImagePreview() {
        var docObj=document.getElementById("doc");
        var imgObjPreview=document.getElementById("preview");

@@ -18,5 +18,8 @@ public interface IBorrow_booksService {
     public boolean updateRecord(BookAndUser bookAndUser);
     //更具姓名查询
     public List findRecordByName(String name);
-
+    //根据Id 删除记录
+    public boolean deleteRecordById(int id);
+    //更具书名查询
+    public List findRecordByBookName(String name);
 }

@@ -20,24 +20,30 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
 
 </head>
-<body style="padding: 20px;background-color: #F5FAFF">
-<h2>Show_Borrow_books</h2>
+<body style="padding: 30px;background-color: #F0F0F0">
+<div style="float: right;margin-top: 10px">
     <input name="username"><input type="button" value="查询" onclick="findRecordByName();"><br><br>
-    <table id="mytb" class="table table-hover" border="1">
+</div>
+    <table id="mytb" style="background-color: white" class="table table-hover" border="1">
         <thead>
+        <tr><td colspan="8" style="background-color: #6795B4">
+            <center style="font-size: 18px;color: white">Show_Borrow_books</center>
+        </td></tr>
         <tr>
             <td>编号</td><td>用户名</td><td>书籍名</td><td>借阅日期</td><td>归还日期</td><td>是否归还</td><td>管理</td>
         </tr>
-        <tr>
-            <a href="javascript:doPage(1);">首页</a>|
-            <a href="javascript:doPage(${pageBean.cpage-1>0?pageBean.cpage-1:1});">上一页</a>|
-            <a href="javascript:doPage(${pageBean.cpage+1>pageBean.allPage?pageBean.allPage:pageBean.cpage+1});">下一页</a>|
-            <a href="javascript:doPage(${pageBean.allPage});">尾页</a>
-        </tr>
+
         </thead>
     </table>
+<div style="float: right;padding: 10px;">
+    <input type="button"  onclick="firstPage();"  name="Submit" value="首页" class="button"/>
+    <input type="button"  id="upPage" onclick="upPage()"  name="Submit" value="上一页" class="button"/>
+    <input type="button"  id="downPage" onclick="downPage()"  name="Submit" value="下一页" class="button"/>
+    <input type="button"  onclick="lastPage();" name="Submit" value="尾页" class="button"/>
+</div>
 </body>
 </html>
 <script>
@@ -68,7 +74,7 @@
 
     //根据名称查询的方法
     function findRecordByName(){
-        $("#mytb tr:not(:first)").remove();
+        $("#mytb tr:gt(1)").remove();
         var param = "username="+$("input[name='username']").val();
         $.post("${pageContext.request.contextPath}/borrowOrReturnAction/findRecordByName",param,function(data){
             $.each(data,function(i,v){

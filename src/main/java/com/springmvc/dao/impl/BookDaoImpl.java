@@ -50,4 +50,15 @@ public class BookDaoImpl extends BaseDao implements IBookDao {
         return book;
     }
 
+    @Override
+    public boolean updateBook(Books books) {
+        try {
+            getSession().update(books);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

@@ -50,8 +50,27 @@ public class Borrow_booksDao_Impl extends BaseDao implements IBorrow_booksDao {
         return false;
     }
 
+    //根据Id 删除记录
+
+
     @Override
     public List findRecordByName(String hql) {
+        return getSession().createQuery(hql).list();
+    }
+
+    @Override
+    public boolean deleteRecordById(String hql) {
+        try {
+            getSession().createSQLQuery(hql);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public List findRecordByBookName(String hql) {
         return getSession().createQuery(hql).list();
     }
 

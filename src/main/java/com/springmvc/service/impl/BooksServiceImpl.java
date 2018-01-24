@@ -63,12 +63,18 @@ public class BooksServiceImpl implements IBooksService {
         int pageSize = 5;
         int startIndex = size;
         String hql = "select * from tb_books limit "+startIndex+","+pageSize+"";
-        return booksDao.firstPage(hql);
+        String hql2 = "select * from tb_books order by book_no desc limit 5 ;";
+        return booksDao.firstPage(hql2);
     }
 
     @Override
     public Books getBookById(int id) {
         return booksDao.getBookById(id);
+    }
+
+    @Override
+    public boolean updateBook(Books books) {
+        return booksDao.updateBook(books);
     }
 
     public void setBooksDao(IBookDao booksDao) {

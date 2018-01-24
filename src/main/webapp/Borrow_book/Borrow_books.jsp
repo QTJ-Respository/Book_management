@@ -10,65 +10,101 @@
 <html>
 <head>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
 
     <title>Title</title>
-    <style>
-        #mainDiv{
-            width: 50%;
-            min-width: 500px;
-            height:90%;
-            border: 1px solid #C3D6E8;
-            margin: auto;
-            padding-left: 10px;
-            border: 1px solid #C3D6E8;
-            padding-top: 20px;
-            border-radius: 10px;
-            background-color: lightskyblue;
-        }
-        input,select{
-            width: 200px;
-            border: 1px solid #ccc;
-            padding: 7px 0px;
-            border-radius: 3px;
-            padding-left:5px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
-        }
-        input:focus{
-            border-color: #66afe9;
-            outline: 0;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
-        }
+    <style type="text/css">
+        <!--
+        .atten {font-size:12px;font-weight:normal;color:#F00;}
+        -->
     </style>
 </head>
-<body style="background-color: #F5FAFF;padding: 20px;">
-<h1>Borrow books</h1>
-    <div id="message" style="font-size: 18px">
-        <c:if test="${param.rtype==1}">
-            <p name="message_p" style="color:green;">借书成功!</p>
-        </c:if>
-        <c:if test="${param.rtype==-1}">
-            <p style="color:red;">借书失败!</p>
-        </c:if>
+<body class="ContentBody">
+<form action="${pageContext.request.contextPath}/borrowOrReturnAction/addRecord" method="post">
+    <div class="MainDiv" style="margin-top: 90px">
+        <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+            <tr>
+                <th class="tablestyle_title" >信息登记页面<center><span id="myspan"></span></center></th>
+            </tr>
+            <tr>
+                <td class="CPanel">
+
+                    <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+                        <tr><td align="left">
+                            <input type="submit"  name="Submit" value="保存" class="button"/>　
+
+                            <input type="reset" name="Submit2" value="重置" class="button"/>
+                        </td></tr>
+
+                        <TR>
+                            <TD width="100%">
+                                <fieldset style="height:100%;">
+                                    <legend>添加借阅信息</legend>
+                                    <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
+
+                                        <tr>
+                                            <td nowrap align="right" width="13%">用户姓名:</td>
+                                            <td width="41%"><input name="user.user_name" class="text" style="width:250px" type="text" size="40" />
+                                                <span class="red"> *</span></td>
+                                            <td nowrap align="right">书籍名称:</td>
+                                            <td><input name="book.book_name" class="text" style="width:154px" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" width="19%">用户电话:</td>
+                                            <td width="27%"><input name="utel" id="Input22" class="text" style="width:154px" /></td>
+                                            <td align="right">借书时间:</td>
+                                            <td><input name="borrow_time" id="Input" type="date" class="text" style="width:154px" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" width="19%"></td>
+                                            <td width="27%"></td>
+                                            <td align="right">归还时间:</td>
+                                            <td><input name="still_time" id="Input2" type="date" class="text" style="width:154px" /></td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </table>
+                                    <br />
+                                </fieldset>			</TD>
+                        </TR>
+
+                    </TABLE>
+
+
+                </td>
+            </tr>
+
+            <TR>
+                <TD colspan="2" align="center" height="50px">
+                    <input type="submit"  name="Submit" value="保存" class="button"/>　
+
+                    <input type="button" name="Submit2" value="返回" class="button" onclick="window.history.go(-1);"/></TD>
+            </TR>
+        </TABLE>
+
+
+        </td>
+        </tr>
+
+
+
+
+        </table>
+
     </div>
-    <div id="mainDiv" >
-        <center>
-        <form action="${pageContext.request.contextPath}/borrowOrReturnAction/addRecord" method="post">
-            用户姓名：<input id="uname" name="user.user_name" onblur="selectUser();"><br><br>
-            用户电话：<input name="utel"><br><br>
-            书籍名称：<input name="book.book_name"><br><br>
-            借书时间：<input name="borrow_time" type="date"><br><br>
-            归还时间：<input name="still_time" type="date"><br><br>
-            <input type="submit"><br>
-        </form>
-        </center>
-    </div>
+</form>
 </body>
 </html>
 <script>
-
+    if(${param.rtype==1}){
+        $("#myspan").html("添加成功");
+    setTimeout("myspan()",1000);
+    }
+    function myspan(){
+        $("#myspan").html(" ");
+    }
+    if(${param.rtype==-1}){
+        $("#myspan").html("添加失败");
+    setTimeout("myspan()",1000);
+    }
 </script>

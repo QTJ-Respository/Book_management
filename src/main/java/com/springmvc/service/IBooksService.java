@@ -22,4 +22,6 @@ public interface IBooksService {
     public List lastPage(int size);
     //更具ID查寻书籍
     public Books getBookById(int id);
+    //修改书籍
+    public boolean updateBook(Books books);
 }

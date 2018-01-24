@@ -31,6 +31,8 @@ public class AdminsAction {
         Administrator admin = adminsService.findAdmins(uname,upwd);
         if(admin!=null){
             attr.addAttribute("admins_name",admin.getAdmins_name());
+            attr.addAttribute("admins_img",admin.getAdmins_img());
+            System.out.println(admin.getAdmins_img());
             return "redirect:/pages/Main.jsp";
         }else{
             attr.addAttribute("rtype","-1");

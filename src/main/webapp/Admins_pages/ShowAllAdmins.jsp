@@ -24,23 +24,35 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" rev="stylesheet" href="../css/style.css" type="text/css" media="all" />
 
 </head>
 <body style="background-color: #F5FAFF">
-<h2>管理员信息列表</h2>
 <div id="mydiv">
+    <div style="float: right;margin-top: 10px">
 <form id="myform" action="" method="post">
     <input id="AdminsName" name="admins_name"><input type="button" onclick="findAdmins();" value="查询">
-</form><br>
+</form>
+    </div><br>
 <table class="table table-hover" id="mytb" border="1">
     <thread>
+        <tr><td colspan="11" style="background-color: #6795B4">
+            <center style="font-size: 18px;color: white">管理员信息列表</center>
+        </td></tr>
         <tr>
             <td>编号</td><td>头像</td><td>姓名</td><td>年龄</td><td>性别</td><td>邮箱</td>
             <td>电话</td><td>住址</td><td>身份证</td><td>状态</td><td>管理</td>
         </tr>
     </thread>
 </table>
+    <div style="float: right;padding: 10px;">
+        <input type="button"  onclick="firstPage();"  name="Submit" value="首页" class="button"/>
+        <input type="button"  id="upPage" onclick="upPage()"  name="Submit" value="上一页" class="button"/>
+        <input type="button"  id="downPage" onclick="downPage()"  name="Submit" value="下一页" class="button"/>
+        <input type="button"  onclick="lastPage();" name="Submit" value="尾页" class="button"/>
+    </div>
 </div>
+
 </body>
 </html>
 <script>

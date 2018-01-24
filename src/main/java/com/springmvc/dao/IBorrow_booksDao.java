@@ -18,4 +18,8 @@ public interface IBorrow_booksDao {
     public boolean updateRecord(BookAndUser bookAndUser);
     //更具姓名查询
     public List findRecordByName(String hql);
+    //根据Id 删除记录
+    public boolean deleteRecordById(String hql);
+    //更具书名查询
+    public List findRecordByBookName(String hql);
 }

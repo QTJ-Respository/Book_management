@@ -1,6 +1,7 @@
 package com.springmvc.web;
 
 import com.springmvc.entity.Users;
+import com.springmvc.service.IBorrow_booksService;
 import com.springmvc.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,9 @@ public class UsersAction {
     @Resource(name="userService")
     private IUserService userService;
 
+    //注入接口
+    @Resource(name="borrow_booksService")
+    private IBorrow_booksService borrow_booksService;
     //根据ID查询用户
     @RequestMapping("/findUserById")
     public String findUserById(int id,RedirectAttributes attr){
@@ -69,10 +73,11 @@ public class UsersAction {
     }
 
     //删除用户
-    @RequestMapping("/deleteUser")
+    @RequestMapping("/deleteUserById")
     @ResponseBody
     public String deleteUser(int id,RedirectAttributes attr){
         System.out.println(id);
+        //清空该用户借书表信息
         Users user = userService.findUserById(id);
         if(userService.deleteUser(user)){
             attr.addAttribute("rtype","1");
@@ -84,5 +89,10 @@ public class UsersAction {
 
     public void setUserService(IUserService userService) {
         this.userService = userService;
+    }
+
+
+    public void setBorrow_booksService(IBorrow_booksService borrow_booksService) {
+        this.borrow_booksService = borrow_booksService;
     }
 }
